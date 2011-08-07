@@ -1,0 +1,30 @@
+.hide {display:none;}
+.clear {clear:both;}
+.clean {float:inherit;margin:inherit;margin:0;padding:inherit;font-weight:inherit;width:inherit;text-align:inherit;}
+.default {cursor:default;}
+.pointer {cursor:pointer;}
+.middle {vertical-align:2px;}
+.bold {font-weight:bold;}
+.lastColumn, .firstColumn {margin-left:50px;float:left;width:445px;}
+.firstColumn {width:350px;}
+.columnTdLeft {float:left;width:220px;}
+.columnTdCenter {float:left;width:50px;}
+.columnTdRight {float:left;}
+.columnColorSelector {line-height:36px;}
+.help {cursor:help;}
+div.colorSelector {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 36px;
+	height: 36px;
+	background: url(../gfx/colorpicker/select.png);
+}
+div.colorSelector div {
+	position: relative;
+	top: 4px;
+	left: 4px;
+	width: 28px;
+	height: 28px;
+	background: url(../gfx/colorpicker/select.png) center;
+}
