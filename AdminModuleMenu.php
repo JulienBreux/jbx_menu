@@ -41,7 +41,7 @@ class AdminModuleMenu extends AdminTab
 
     public function __construct() {
         $this->_modulePath =  _PS_MODULE_DIR_ . $this->_module . DIRECTORY_SEPARATOR;
-        $this->_importLang();
+        //$this->_importLang();
         parent::__construct();
     }
 
@@ -675,6 +675,7 @@ class AdminModuleMenu extends AdminTab
           </p>
         </div>
         <div class="firstColumn left">';
+		// $this->l('Yes'); $this->l('No');
         // $this->l('Show lang ?'); $this->l('Show lang menu into your menu.');
         //$this->_html .= $this->_displayInputRadio('Show lang ?', 'lang', Configuration::get('MENU_LANG'), 'Show lang menu into your menu.');
         // $this->l('Show search bar ?'); $this->l('Show search field into your menu.');
@@ -1074,7 +1075,7 @@ class AdminModuleMenu extends AdminTab
           $this->_getCategoryOption($_children['id_category'], $id_lang, $children, $selectedCat);
     }
   }
-
+/*
     private function _importLang() {
         global $cookie, $_LANGADM;
         $langFile = $this->_modulePath . Language::getIsoById(intval($cookie->id_lang)) . '.php';
@@ -1087,4 +1088,5 @@ class AdminModuleMenu extends AdminTab
             }
         }
     }
+*/
 }
