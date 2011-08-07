@@ -1,0 +1,3 @@
+config.xml
+cache/*
+cache/!index.php
