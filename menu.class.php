@@ -340,8 +340,12 @@ class Menu extends ObjectModel
             }
             $results[] = array(
                 'id' => $categorie->id,
+                'id_menu' => '',
                 'type' => 'category',
                 'title' => $title,
+                'logged' => null,
+                'css'	=> '',
+                'new_window' => false,
                 'level' => $currLevel,
                 'numProducts' => Configuration::get('MENU_CATEGORIES_NUM') ? self::getNumProductsByCategory($categorie->id) : 0,
                 'link' => $link,
@@ -451,8 +455,10 @@ class Menu extends ObjectModel
 
     public static function setCache($data, $id_lang)
 	{
-		file_put_contents(self::getModulePath('cache') . 'menu.' . $id_lang, serialize($data));
-		Configuration::updateValue('MENU_CACHE_LATEST', array($id_lang => time()));
+		if (self::cacheIsWritable()) {
+			file_put_contents(self::getModulePath('cache') . 'menu.' . $id_lang, serialize($data));
+			Configuration::updateValue('MENU_CACHE_LATEST', array($id_lang => time()));
+		}
     }
 
     public static function getCache($id_lang)
@@ -463,7 +469,7 @@ class Menu extends ObjectModel
 
     public static function isCached($id_lang)
 	{
-		if (Configuration::get('MENU_CACHE_ENABLE') == 0) {
+		if (Configuration::get('MENU_CACHE_ENABLE') == 0 || !self::cacheIsWritable()) {
 			return false;
 		}
 		$now = (int) time();
@@ -473,6 +479,11 @@ class Menu extends ObjectModel
 		//exit(var_dump($now <= ($latest + $refresh)));
         return $now <= ($latest + $refresh);
     }
+
+	public static function cacheIsWritable()
+	{
+		return self::is_writable(self::getModulePath('cache'));
+	}
 
 	public static function forceCache()
 	{
@@ -516,5 +527,27 @@ class Menu extends ObjectModel
 	{
 		return _PS_MODULE_DIR_ . 'jbx_menu' . DIRECTORY_SEPARATOR .
 			(!is_null($dir) ? $dir . DIRECTORY_SEPARATOR : '');
+	}
+
+	public static function is_writable($path)
+	{
+		// will work in despite of Windows ACLs bug
+		// NOTE: use a trailing slash for folders!!!
+		// see http://bugs.php.net/bug.php?id=27609
+		// see http://bugs.php.net/bug.php?id=30931
+
+    	if ($path{strlen($path)-1}=='/') // recursively return a temporary file path
+        	return self::is_writable($path.uniqid(mt_rand()).'.tmp');
+    	else if (is_dir($path))
+        	return self::is_writable($path.'/'.uniqid(mt_rand()).'.tmp');
+    	// check tmp file for read/write capabilities
+    	$rm = file_exists($path);
+    	$f = @fopen($path, 'a');
+    	if ($f===false)
+        	return false;
+    	fclose($f);
+    	if (!$rm)
+        	unlink($path);
+    	return true;
 	}
 }
