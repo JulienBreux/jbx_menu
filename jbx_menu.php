@@ -43,7 +43,10 @@ class jbx_menu extends Module
 		$this->name = 'jbx_menu';
 		$this->tab = 'front_office_features';
 		$this->version = '2.8.0';
+		$this->author = 'Web-Scope';
+
 		parent::__construct();
+
 		$this->page = basename(__FILE__, '.php');
 		$this->displayName = $this->l('Menu');
 		$this->description = $this->l('Add a new menu in your shop.');
