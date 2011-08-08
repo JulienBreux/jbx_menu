@@ -1,3 +1,3 @@
 config.xml
 cache/*
-cache/!index.php
+!cache/index.php
