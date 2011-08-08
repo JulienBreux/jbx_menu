@@ -95,6 +95,21 @@ class jbx_menu extends Module
 			//'theme' => Configuration::get('MENU_THEME'),
 			'hook' => isset($parameters['preview']) ? 'menu' : Configuration::get('MENU_HOOK'),
 		);
+
+		// CSS Files
+		Tools::addCss(array(
+			$this->_path . 'css/superfish-modified.css'		=> 'screen',
+			$this->_path . 'cache/menu.css'					=> 'screen',
+			__PS_BASE_URI__ . 'css/jquery.autocomplete.css'	=> 'screen',
+		));
+
+		// JS Files
+		Tools::addJS(array(
+			$this->_path . 'js/hoverIntent.js',
+			$this->_path . 'js/superfish-modified.js',
+			__PS_BASE_URI__ . 'js/jquery/jquery.autocomplete.js'
+		));
+
 		$smarty->assign('menu', $vars);
 		return $this->display(__FILE__, 'header.tpl');
 	}
