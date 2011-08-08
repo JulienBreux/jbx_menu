@@ -23,7 +23,7 @@ class jbx_menu extends Module
 		'MENU_ITEM_COLOR' => 'EBEBED',
 		'MENU_ITEM_HOVER_COLOR' => 'D0D3D8',
 		'MENU_ITEM_SIZE' => 13,
-		'MENU_TEXT_COLOR' => '374853',
+		'MENU_TEXT_COLOR' => 'ededed',
 		'MENU_TEXT_OVER_COLOR' => '374853',
 		'MENU_TEXT_BOLD' => 0,
 		'MENU_TEXT_SIZE' => 12,
