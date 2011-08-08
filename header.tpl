@@ -1,13 +1,5 @@
 
         <!-- MODULE JBX_MENU -->
-        {*
-        <link rel="stylesheet" type="text/css" href="{$menu.path}css/superfish-modified.css" media="screen" />
-        <link rel="stylesheet" type="text/css" href="{$menu.path}cache/menu.css" media="screen" />
-        <link rel="stylesheet" type="text/css" href="{$content_dir}css/jquery.autocomplete.css" />
-        <script type="text/javascript" src="{$menu.path}js/hoverIntent.js"></script>
-        <script type="text/javascript" src="{$menu.path}js/superfish-modified.js"></script>
-        <script type="text/javascript" src="{$content_dir}js/jquery/jquery.autocomplete.js"></script>
-        *}
 {if $menu.searchable_autocomplete}
         <script type="text/javascript">
         //<![CDATA[
