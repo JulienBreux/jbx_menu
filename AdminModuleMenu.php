@@ -1032,7 +1032,7 @@ class AdminModuleMenu extends AdminTab
 			</p>
 			<p>&nbsp;</p>
 			<p style="text-align:center;">
-				<a href="mailto:jbreux@web-scope.fr" class="button">' . $this->l('Contact:') . ' jbreux@web-scope.fr</a>
+				<a href="mailto:support@web-scope.fr" class="button">' . $this->l('Contact:') . ' support@web-scope.fr</a>
 			</p>
 		</fieldset>';
   }
