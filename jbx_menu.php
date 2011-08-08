@@ -234,7 +234,7 @@ class jbx_menu extends Module
 		}
 		// Add menu_lang
 		$database->Execute(
-			'CREATE TABLE `' . _DB_PREFIX_ . 'menu_lang` (
+			'CREATE TABLE IF NOT EXISTS `' . _DB_PREFIX_ . 'menu_lang` (
 			`id_menu` int(10) unsigned NOT NULL,
 			`id_lang` tinyint(2) unsigned NOT NULL,
 			`title` varchar(128) NOT NULL,
