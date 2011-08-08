@@ -229,7 +229,7 @@ class jbx_menu extends Module
 		$num = (int) $database->getValue('SELECT count(`id_menu`) FROM `' . _DB_PREFIX_ . 'menu`');
 		if (!$num) {
 			$database->Execute(
-				"INSERT INTO `" . _DB_PREFIX_ . "menu` (`id_menu`, `id_parent`, `id_item`, `type`, `level`, `ignore`, `active`, `position`, `date_add`, `date_upd`) VALUES(1, 0, 0, 'link', 0, NULL, 1, 1, '2009-12-06 18:25:02', '2009-12-06 18:25:02');"
+				"INSERT INTO `" . _DB_PREFIX_ . "menu` (`id_menu`, `id_parent`, `id_item`, `type`, `level`, `ignore`, `active`, `position`, `date_add`, `date_upd`) VALUES(1, 0, 0, 'link', 0, NULL, 1, 1, NOW(), NOW());"
 			);
 		}
 		// Add menu_lang
@@ -245,7 +245,7 @@ class jbx_menu extends Module
 		if (!$num) {
 			foreach ($languages as $language) {
 				$database->Execute(
-					"INSERT INTO `" . _DB_PREFIX_ . "menu_lang` (`id_menu`, `id_lang`, `title`, `link`) VALUES(1, {$language['id_lang']}, 'Julien Breux', 'http://www.julien-breux.com');"
+					"INSERT INTO `" . _DB_PREFIX_ . "menu_lang` (`id_menu`, `id_lang`, `title`, `link`) VALUES(1, {$language['id_lang']}, 'Web-Scope', 'http://www.web-scope.fr');"
 				);
 			}
 		}
