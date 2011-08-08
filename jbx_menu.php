@@ -42,7 +42,7 @@ class jbx_menu extends Module
 	{
 		$this->name = 'jbx_menu';
 		$this->tab = 'front_office_features';
-		$this->version = '2.7.2';
+		$this->version = '2.7.3';
 		parent::__construct();
 		$this->page = basename(__FILE__, '.php');
 		$this->displayName = $this->l('Menu');
@@ -187,6 +187,11 @@ class jbx_menu extends Module
 	{
 		$languages = Language::getLanguages();
 		$database = Db::getInstance();
+		$charset = 'utf8';
+		$engine = 'InnoDB';
+		if (defined('_MYSQL_ENGINE_')) {
+			$engine = _MYSQL_ENGINE_;
+		}
 		// Add menu
 		$database->Execute(
 			'CREATE TABLE IF NOT EXISTS `' . _DB_PREFIX_ . 'menu` (
@@ -204,7 +209,7 @@ class jbx_menu extends Module
 			`date_add` datetime NOT NULL,
 			`date_upd` datetime NOT NULL,
 			PRIMARY KEY  (`id_menu`)
-			) ENGINE=InnoDB  DEFAULT CHARSET=utf8;'
+			) ENGINE=' . $engine . ' DEFAULT CHARSET=' . $charset . ';'
 		);
 		$num = (int) $database->getValue('SELECT count(`id_menu`) FROM `' . _DB_PREFIX_ . 'menu`');
 		if (!$num) {
@@ -220,7 +225,7 @@ class jbx_menu extends Module
 			`title` varchar(128) NOT NULL,
 			`link` varchar(128) NOT NULL,
 			PRIMARY KEY  (`id_menu`,`id_lang`)
-			) ENGINE=InnoDB DEFAULT CHARSET=utf8;'
+			) ENGINE=' . $engine . ' DEFAULT CHARSET=' . $charset . ';'
 		);
 		if (!$num) {
 			foreach ($languages as $language) {
