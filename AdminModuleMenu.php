@@ -37,6 +37,7 @@ class AdminModuleMenu extends AdminTab
         'MENU_ICONS',
         'MENU_HOOK',
 		'MENU_CACHE_ENABLE',
+		'MENU_ALLOW_OPTIONS',
     );
 
     public function __construct() {
@@ -49,7 +50,9 @@ class AdminModuleMenu extends AdminTab
         $this->_displayHeades();
         $this->_displayItemsList();
         $this->_displayItemAdd();
-        $this->_displayOptionsForm();
+		if ($this->_isAdmin() || (bool) Configuration::get('MENU_ALLOW_OPTIONS')) {
+        	$this->_displayOptionsForm();
+		}
         echo $this->_html;
     }
 
@@ -690,6 +693,10 @@ class AdminModuleMenu extends AdminTab
         $this->_html .= $this->_displayInputRadio('Hook to Use ?', 'hook', Configuration::get('MENU_HOOK'), 'Choose the best method to attach your menu to your theme.', array('Top'=>'top', 'Menu'=>'menu'));
         // $this->l('Use cache ?'); $this->l('Use cache for best performances.');
         $this->_html .= $this->_displayInputRadio('Use cache ?', 'cache_enable', Configuration::get('MENU_CACHE_ENABLE'), 'Use cache for best performances.');
+		if ($this->_isAdmin()) {
+        // $this->l('Allow options ?'); $this->l('Admin only. Use this for disable or enable options.');
+        	$this->_html .= $this->_displayInputRadio('Allow options ?', 'allow_options', Configuration::get('MENU_ALLOW_OPTIONS'), 'Admin only. Use this for disable or enable options.');
+		}
         $this->_html .= '
         </div>
         <div class="lastColumn left">
@@ -1075,18 +1082,11 @@ class AdminModuleMenu extends AdminTab
           $this->_getCategoryOption($_children['id_category'], $id_lang, $children, $selectedCat);
     }
   }
-/*
-    private function _importLang() {
-        global $cookie, $_LANGADM;
-        $langFile = $this->_modulePath . Language::getIsoById(intval($cookie->id_lang)) . '.php';
-        if (file_exists($langFile)) {
-            require_once $langFile;
-            foreach ($_MODULE as $key => $value) {
-                if (substr(strip_tags($key), 0, 5) == 'Admin') {
-                    $_LANGADM[str_replace('_', '', strip_tags($key))] = $value;
-                }
-            }
-        }
-    }
-*/
+
+	protected function _isAdmin()
+	{
+		global $cookie;
+		$employee = new Employee((int) $cookie->id_employee);
+		return (int) $employee->id_profile === (int) _PS_ADMIN_PROFILE_;
+	}
 }
