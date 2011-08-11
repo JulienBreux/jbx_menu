@@ -72,6 +72,8 @@ $_MODULE['<{jbx_menu}prestashop>adminmodulemenu_defa05fbad39c5267672383a55021b25
 $_MODULE['<{jbx_menu}prestashop>adminmodulemenu_bf4f7d9f57e43d4f4219dccc8aba282d'] = 'Choisissez le meilleur point d\'accroche pour attacher votre menu à votre thème.';
 $_MODULE['<{jbx_menu}prestashop>adminmodulemenu_513726237ba4006b4208652193cbfbb3'] = 'Utiliser le cache ?';
 $_MODULE['<{jbx_menu}prestashop>adminmodulemenu_3b92852381545d147cb08b8c435e41fe'] = 'Utiliser le cache pour de meilleurs performances';
+$_MODULE['<{jbx_menu}prestashop>adminmodulemenu_b51d4343d9ff8ff112fbb71d8b83ab23'] = 'Autoriser les options?';
+$_MODULE['<{jbx_menu}prestashop>adminmodulemenu_592e60a9f4f49ac39b79557ecf2127ce'] = 'Admin uniquement. Utilisez cette option pour activer ou désactiver les options.';
 $_MODULE['<{jbx_menu}prestashop>adminmodulemenu_9dffbf69ffba8bc38bc4e01abf4b1675'] = 'Texte';
 $_MODULE['<{jbx_menu}prestashop>adminmodulemenu_1d83718c9d641b714e5f0f777c759b24'] = 'Changez la couleur des textes des éléments de votre menu.';
 $_MODULE['<{jbx_menu}prestashop>adminmodulemenu_9d5ed678fe57bcca610140957afab571'] = 'G';

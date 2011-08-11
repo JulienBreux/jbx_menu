@@ -36,6 +36,7 @@ class jbx_menu extends Module
 		'MENU_CACHE_ENABLE' => 0,
 		'MENU_CACHE_LATEST' => 1,
 		'MENU_CACHE_REFRESH' => 120,
+		'MENU_ALLOW_OPTIONS' => true,
 	);
 
 	public function __construct()
