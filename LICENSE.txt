@@ -1,4 +1,4 @@
-Copyright 2011 Web-Scope - Julien BREUX  (email : support@web-scope.fr)
+Copyright 2011 Julien BREUX  (email : julien.breux@gmail.com)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License, version 3, as 

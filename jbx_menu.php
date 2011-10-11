@@ -43,8 +43,8 @@ class jbx_menu extends Module
 	{
 		$this->name = 'jbx_menu';
 		$this->tab = 'front_office_features';
-		$this->version = '2.8.1';
-		$this->author = 'Web-Scope';
+		$this->version = '2.8.2';
+		$this->author = 'Julien Breux';
 
 		parent::__construct();
 
@@ -249,7 +249,7 @@ class jbx_menu extends Module
 		if (!$num) {
 			foreach ($languages as $language) {
 				$database->Execute(
-					"INSERT INTO `" . _DB_PREFIX_ . "menu_lang` (`id_menu`, `id_lang`, `title`, `link`) VALUES(1, {$language['id_lang']}, 'Web-Scope', 'http://www.web-scope.fr');"
+					"INSERT INTO `" . _DB_PREFIX_ . "menu_lang` (`id_menu`, `id_lang`, `title`, `link`) VALUES(1, {$language['id_lang']}, 'Julien Breux', 'http://www.julien-breux.com');"
 				);
 			}
 		}
