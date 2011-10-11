@@ -1033,13 +1033,13 @@ class AdminModuleMenu extends AdminTab
     </form>
 		<br />
 		<fieldset class="flash" id="fsUploadProgress">
-			<legend><img src="http://www.julien-breux.com/webs.png" alt="" />' . $this->l('Powered by Web-Scope') . '</legend>
+			<legend>' . $this->l('Powered by Julien Breux') . '</legend>
 			<p>
 				' . $this->l('Project author: ') . ' Julien Breux
 			</p>
 			<p>&nbsp;</p>
 			<p style="text-align:center;">
-				<a href="mailto:support@web-scope.fr" class="button">' . $this->l('Contact:') . ' support@web-scope.fr</a>
+				<a href="mailto:julien.breux@gmail.com" class="button">' . $this->l('Contact:') . ' julien.breux@gmail.com</a>
 			</p>
 		</fieldset>';
   }
