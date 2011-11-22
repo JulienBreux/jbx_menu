@@ -117,7 +117,6 @@ $_MODULE['<{jbx_menu}prestashop>adminmodulemenu_1d4f7efcd211c70f0bb28769e321abdd
 $_MODULE['<{jbx_menu}prestashop>adminmodulemenu_85e7bf3c327e295a28c2a51e1b27569c'] = 'Durée du cache';
 $_MODULE['<{jbx_menu}prestashop>adminmodulemenu_52e1583e4805def74113c402b61cc262'] = 'Définir une valeur d\'actualisation du cache en secondes.';
 $_MODULE['<{jbx_menu}prestashop>adminmodulemenu_356d4c53e7100eaa6bc44ce15b919e69'] = 'Enregistrer les options';
-$_MODULE['<{jbx_menu}prestashop>adminmodulemenu_fa8c142d02ba6e79ffb04fde62303858'] = 'Réalisé par Web-Scope';
 $_MODULE['<{jbx_menu}prestashop>adminmodulemenu_e01a46b42340c444268fc0474e2769cf'] = 'Auteur du projet :';
 $_MODULE['<{jbx_menu}prestashop>adminmodulemenu_3ff8fa60506608c6c29235f333573891'] = 'Contact :';
 $_MODULE['<{jbx_menu}prestashop>jbx_menu_b61541208db7fa7dba42c85224405911'] = 'Menu';
