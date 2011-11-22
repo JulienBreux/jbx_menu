@@ -43,7 +43,7 @@ class jbx_menu extends Module
 	{
 		$this->name = 'jbx_menu';
 		$this->tab = 'front_office_features';
-		$this->version = '2.8.2';
+		$this->version = '2.8.3';
 		$this->author = 'Julien Breux';
 
 		parent::__construct();
@@ -187,6 +187,7 @@ class jbx_menu extends Module
 		if (!$tab->save()) {
 			return false;
 		}
+		Tab::initAccess($tab->id);
 		return true;
 	}
 
