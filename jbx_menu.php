@@ -43,7 +43,7 @@ class jbx_menu extends Module
 	{
 		$this->name = 'jbx_menu';
 		$this->tab = 'front_office_features';
-		$this->version = '2.8.3';
+		$this->version = '2.8.4';
 		$this->author = 'Julien Breux';
 
 		parent::__construct();
@@ -184,10 +184,17 @@ class jbx_menu extends Module
 		$tab->class_name = $this->_tabClass;
 		$tab->module = $this->name;
 		$tab->id_parent = 7;
-		if (!$tab->save()) {
-			return false;
-		}
-		Tab::initAccess($tab->id);
+		$tab->save();
+
+        $fields = array(
+            'id_profile' => 1,
+            'id_tab' => (int) $tab->id,
+            'view' => 1,
+            'add' => 1,
+            'edit' => 1,
+            'delete' => 1
+        );
+        Db::getInstance()->autoExecute(_DB_PREFIX_.'access', $fields, 'INSERT');
 		return true;
 	}
 
