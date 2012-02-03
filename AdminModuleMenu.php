@@ -69,13 +69,7 @@ class AdminModuleMenu extends AdminTab
         Configuration::updateValue('MENU_' . strToUpper($key), Tools::getValue($key, 0));
         if ($key == 'menu_color' && Menu::haveGd()) {
           // LIGHT CALCUL
-            $light = -150;
-            if (isset($_GET['light']) && ((int)$_GET['light'] >= 0 && (int)$_GET['light'] <= 200)) {
-                $light = (int)$_GET['light'] + $light;
-            }
-            else {
-                $light += 100;
-            }
+          $light = (int)Tools::getValue('menu_light', 100)-150;
           $img = imageCreateFromGif(_PS_MODULE_DIR_ . 'jbx_menu/gfx/menu/menu_orig.gif');
           Menu::colorize($img, Tools::getValue($key, '000000'), $light);
           imageGif($img, _PS_MODULE_DIR_ . 'jbx_menu/gfx/menu/menu.gif');
@@ -652,7 +646,7 @@ class AdminModuleMenu extends AdminTab
   private function _displayOptionsForm() {
     if (Menu::haveGd()) {
       $base = _MODULE_DIR_ . $this->_module . '/colorize.php?preview&color=';
-      $bgMenu =  $base . Configuration::get('MENU_MENU_COLOR');
+      $bgMenu =  $base . Configuration::get('MENU_MENU_COLOR') . '&light=' . Configuration::get('MENU_MENU_LIGHT');
       $bgMenuAlt = $base . '#COLOR#' . '&light=#LIGHT#';
     }
     else {
