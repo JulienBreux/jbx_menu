@@ -36,8 +36,9 @@ class AdminModuleMenu extends AdminTab
         'MENU_COMPLETION',
         'MENU_ICONS',
         'MENU_HOOK',
-		'MENU_CACHE_ENABLE',
-		'MENU_ALLOW_OPTIONS',
+    'MENU_CACHE_ENABLE',
+		'MENU_STYLES_ENABLE',
+    'MENU_ALLOW_OPTIONS',
     );
 
     public function __construct() {
@@ -687,6 +688,8 @@ class AdminModuleMenu extends AdminTab
         $this->_html .= $this->_displayInputRadio('Hook to Use ?', 'hook', Configuration::get('MENU_HOOK'), 'Choose the best method to attach your menu to your theme.', array('Top'=>'top', 'Menu'=>'menu'));
         // $this->l('Use cache ?'); $this->l('Use cache for best performances.');
         $this->_html .= $this->_displayInputRadio('Use cache ?', 'cache_enable', Configuration::get('MENU_CACHE_ENABLE'), 'Use cache for best performances.');
+        // $this->l('Use styles ?'); $this->l('Use styles for non-developers');
+        $this->_html .= $this->_displayInputRadio('Use styles ?', 'styles_enable', Configuration::get('MENU_STYLES_ENABLE'), 'Use styles for non-developers.');
 		if ($this->_isAdmin()) {
         // $this->l('Allow options ?'); $this->l('Admin only. Use this for disable or enable options.');
         	$this->_html .= $this->_displayInputRadio('Allow options ?', 'allow_options', Configuration::get('MENU_ALLOW_OPTIONS'), 'Admin only. Use this for disable or enable options.');

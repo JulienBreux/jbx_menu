@@ -36,6 +36,7 @@ class jbx_menu extends Module
 		'MENU_CACHE_ENABLE' => 0,
 		'MENU_CACHE_LATEST' => 1,
 		'MENU_CACHE_REFRESH' => 120,
+		'MENU_STYLES_ENABLE' => 1,
 		'MENU_ALLOW_OPTIONS' => true,
 	);
 
@@ -88,6 +89,7 @@ class jbx_menu extends Module
 			'searchable_autocomplete' => Configuration::get('MENU_COMPLETION'),
 			'id_lang' => $cookie->id_lang,
 			'id' => $this->_getId(),
+			'category_id' => $this->_getCategoryId($cookie->id_lang),
 			'categories_num' => intVal(Configuration::get('MENU_CATEGORIES_NUM')),
 			'categories_zero' => Configuration::get('MENU_CATEGORIES_ZERO') ? true : false,
 			//'tags_num' => intVal(Configuration::get('MENU_TAGS_NUM')),
@@ -101,11 +103,12 @@ class jbx_menu extends Module
 		);
 
 		// CSS Files
-		Tools::addCss(array(
-			$this->_path . 'css/superfish-modified.css'		=> 'screen',
-			$this->_path . 'cache/menu.css'					=> 'screen',
-			__PS_BASE_URI__ . 'css/jquery.autocomplete.css'	=> 'screen',
-		));
+		if (Configuration::get('MENU_STYLES_ENABLE'))
+			Tools::addCss(array(
+				$this->_path . 'css/superfish-modified.css'		=> 'screen',
+				$this->_path . 'cache/menu.css'					=> 'screen',
+				__PS_BASE_URI__ . 'css/jquery.autocomplete.css'	=> 'screen',
+			));
 
 		// JS Files
 		Tools::addJS(array(
@@ -156,6 +159,27 @@ class jbx_menu extends Module
 		$id_supplier = Tools::getValue('id_supplier', 0);
 		$id = $id_category + $id_product + $id_cms + $id_manufacturer + $id_supplier;
 		return $id;
+	}
+
+	private function _getCategoryId($id_lang)
+	{
+		$category = false;
+		if (isset($_SERVER['HTTP_REFERER']) AND preg_match('!^(.*)\/([0-9]+)\-(.*[^\.])|(.*)id_category=([0-9]+)(.*)$!', $_SERVER['HTTP_REFERER'], $regs) AND !strstr($_SERVER['HTTP_REFERER'], '.html'))
+		{
+			if (isset($regs[2]) AND is_numeric($regs[2]))
+			{
+				if (Product::idIsOnCategoryId((int)($this->_getId()), array('0' => array('id_category' => (int)($regs[2])))))
+					$category = new Category((int)($regs[2]), $id_lang);
+			}
+			elseif (isset($regs[5]) AND is_numeric($regs[5]))
+			{
+				if (Product::idIsOnCategoryId((int)($this->_getId()), array('0' => array('id_category' => (int)($regs[5])))))
+					$category = new Category((int)($regs[5]), $id_lang);
+			}
+		}
+		
+		if ($category)
+			return $category->id;
 	}
 
 	private function _installConfiguration()
