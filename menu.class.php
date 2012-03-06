@@ -550,4 +550,12 @@ class Menu extends ObjectModel
         	unlink($path);
     	return true;
 	}
+
+    public static function isWritableGfx()
+    {
+        $menuFile = _PS_MODULE_DIR_ . 'jbx_menu/gfx/menu/menu.gif';
+        $menuHoverFile = _PS_MODULE_DIR_ . 'jbx_menu/gfx/menu/hover.gif';
+
+        return is_writable($menuFile) && is_writable($menuHoverFile);
+    }
 }
