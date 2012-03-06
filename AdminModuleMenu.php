@@ -776,7 +776,7 @@ class AdminModuleMenu extends AdminTab
             </div>
           </p>';
 
-          if (Menu::haveGd()) {
+          if (Menu::haveGd() && Menu::isWritableGfx()) {
             $this->_html .= '
             <p class="clear">
               <div class="columnTdLeft columnColorSelector">
@@ -814,6 +814,11 @@ class AdminModuleMenu extends AdminTab
               </div>
             </p>';
           }
+          else
+              $this->_html .= '
+              <p class="clear">
+                <i>'.$this->l('If you want to edit menu color. You must give write permissions to files in the folder /gfx/menu/').'.</i>
+              </p>';
 
           $this->_html .= '
           <!-- 2009-12-14 09:12:33 -->

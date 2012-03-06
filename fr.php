@@ -119,5 +119,6 @@ $_MODULE['<{jbx_menu}prestashop>adminmodulemenu_52e1583e4805def74113c402b61cc262
 $_MODULE['<{jbx_menu}prestashop>adminmodulemenu_356d4c53e7100eaa6bc44ce15b919e69'] = 'Enregistrer les options';
 $_MODULE['<{jbx_menu}prestashop>adminmodulemenu_e01a46b42340c444268fc0474e2769cf'] = 'Auteur du projet :';
 $_MODULE['<{jbx_menu}prestashop>adminmodulemenu_3ff8fa60506608c6c29235f333573891'] = 'Contact :';
+$_MODULE['<{jbx_menu}prestashop>adminmodulemenu_d787d53bf4d8957e9f29131fe4ad8e62'] = 'Si vous voulez éditer la couleur. Vous devez donner les droits d\'écritures au fichiers présents dans le dossier /gfx/menu/';
 $_MODULE['<{jbx_menu}prestashop>jbx_menu_b61541208db7fa7dba42c85224405911'] = 'Menu';
 $_MODULE['<{jbx_menu}prestashop>jbx_menu_e3794ea5d66f5dee216d6128b9613b21'] = 'Ajouter un nouveau menu dans votre boutique.';
