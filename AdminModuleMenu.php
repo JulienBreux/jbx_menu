@@ -1,5 +1,5 @@
 <?php
-require_once PS_ADMIN_DIR . '/../classes/AdminTab.php';
+require_once _PS_CLASS_DIR_ . 'AdminTab.php';
 require_once _PS_MODULE_DIR_ . 'jbx_menu/menu.class.php';
 require_once _PS_MODULE_DIR_ . 'jbx_menu/jbx_menu.php';
 
