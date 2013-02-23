@@ -485,7 +485,7 @@ class AdminModuleMenu extends AdminTab
       		foreach ($languages as $language) {
       			$this->_html .= '
             <div id="title_'.$language['id_lang'].'" style="display: '.($language['id_lang'] == $defaultLanguage ? 'block' : 'none').'; float: left;">
-              <input type="text" name="title['.$language['id_lang'].']" value="' . (!is_null($menu->id) ? $menu->title[$language['id_lang']] : '') . 
+              <input type="text" name="title_'.$language['id_lang'].'" value="' . (!is_null($menu->id) ? $menu->title[$language['id_lang']] : '') . 
               '" class="'.($language['id_lang'] != $defaultLanguage ? 'clone' : 'cloneParent').'" /><sup class="case case_link hide"> *</sup>
             </div>';
       		}
